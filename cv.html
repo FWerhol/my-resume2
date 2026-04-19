@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Дмитрий Фергерт — резюме · Frontend</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #0a0f0c;
+            --card: #0d1510;
+            --border: rgba(120, 175, 145, 0.35);
+            --text: #f4f4f5;
+            --muted: rgba(244, 244, 245, 0.62);
+            --accent: #6ee7b7;
+            --gold: #d4c06a;
+            --r: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Manrope", system-ui, sans-serif;
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--muted);
+            background: radial-gradient(1200px 600px at 12% 0%, rgba(46, 139, 87, 0.12), transparent 55%),
+                var(--bg);
+            padding: 2rem 1.25rem 3rem;
+        }
+
+        .cv {
+            max-width: 720px;
+            margin: 0 auto;
+            background: linear-gradient(165deg, rgba(18, 32, 24, 0.92), rgba(8, 12, 10, 0.98));
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.35rem, 4vw, 2rem);
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+        }
+
+        .cv-header {
+            display: grid;
+            gap: 0.75rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(120, 175, 145, 0.22);
+        }
+
+        .cv-name {
+            margin: 0;
+            font-size: clamp(1.75rem, 4.5vw, 2.15rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+        .cv-role {
+            margin: 0;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .cv-tagline {
+            margin: 0;
+            max-width: 52ch;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .cv-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            margin: 0.25rem 0 0;
+            padding: 0;
+            list-style: none;
+            font-size: 0.82rem;
+        }
+
+        .cv-contacts a {
+            color: rgba(200, 245, 218, 0.88);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(120, 175, 145, 0.35);
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .cv-contacts a:hover {
+            color: #fff;
+            border-bottom-color: var(--accent);
+        }
+
+        .cv-mail-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.35rem;
+            padding: 0.55rem 1rem;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #051018 !important;
+            text-decoration: none !important;
+            border: none !important;
+            background: linear-gradient(135deg, #4c9b70, #46d9ff);
+            box-shadow: 0 10px 28px rgba(46, 139, 87, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cv-mail-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 32px rgba(46, 139, 87, 0.35);
+        }
+
+        .cv-section {
+            margin-bottom: 1.35rem;
+        }
+
+        .cv-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .cv-section-title {
+            margin: 0 0 0.65rem;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .cv-section p {
+            margin: 0 0 0.65rem;
+        }
+
+        .cv-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .cv-pill {
+            display: inline-block;
+            padding: 0.35rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(228, 232, 229, 0.92);
+            background: rgba(22, 42, 30, 0.65);
+            border: 1px solid rgba(86, 132, 105, 0.38);
+        }
+
+        .cv-job {
+            margin-bottom: 1.1rem;
+        }
+
+        .cv-job:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-job-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.35rem 1rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .cv-job-title {
+            margin: 0;
+            font-size: 1.02rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .cv-job-meta {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(173, 212, 184, 0.75);
+            white-space: nowrap;
+        }
+
+        .cv-job-sub {
+            margin: 0 0 0.4rem;
+            font-size: 0.84rem;
+            color: rgba(244, 244, 245, 0.48);
+        }
+
+        .cv-list {
+            margin: 0;
+            padding-left: 1.15rem;
+        }
+
+        .cv-list li {
+            margin-bottom: 0.35rem;
+        }
+
+        .cv-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-hint {
+            max-width: 720px;
+            margin: 1.25rem auto 0;
+            padding: 0 1rem;
+            font-size: 0.78rem;
+            color: rgba(244, 244, 245, 0.38);
+            text-align: center;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                color: #1a1a1a;
+                padding: 0;
+            }
+
+            .cv {
+                max-width: none;
+                margin: 0;
+                padding: 12mm 14mm;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                background: #fff;
+            }
+
+            .cv-name,
+            .cv-job-title,
+            .cv-section-title {
+                color: #0f172a;
+            }
+
+            .cv-role {
+                color: #047857;
+            }
+
+            .cv-tagline,
+            .cv-section p,
+            .cv-list li {
+                color: #334155;
+            }
+
+            .cv-contacts a {
+                color: #0f766e;
+                border-bottom-color: #99f6e4;
+            }
+
+            .cv-mail-cta {
+                background: #ecfdf5 !important;
+                color: #047857 !important;
+                border: 1px solid #a7f3d0 !important;
+                box-shadow: none !important;
+                transform: none !important;
+            }
+
+            .cv-pill {
+                background: #f1f5f9;
+                border-color: #cbd5e1;
+                color: #1e293b;
+            }
+
+            .cv-job-meta,
+            .cv-job-sub {
+                color: #64748b !important;
+            }
+
+            .cv-header {
+                border-bottom-color: #e2e8f0;
+            }
+
+            .cv-hint {
+                display: none;
+            }
+
+            .cv-section strong {
+                color: #0f172a !important;
+            }
+
+            a[href^="http"]::after {
+                content: " (" attr(href) ")";
+                font-size: 0.75em;
+                color: #64748b;
+            }
+
+            a[href^="mailto:"]::after {
+                content: "";
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="cv" id="cv">
+        <header class="cv-header">
+            <h1 class="cv-name">Дмитрий Фергерт</h1>
+            <p class="cv-role">Frontend-разработчик</p>
+            <p class="cv-tagline">
+                Создаю быстрые и сдержанные интерфейсы: современная вёрстка, чистый код, производительность и внимание к
+                деталям. Опыт продуктовых лендингов и точечных доработок.
+            </p>
+            <ul class="cv-contacts">
+                <li>
+                    <a class="cv-mail-cta"
+                        href="mailto:dima.fergert@mail.ru?subject=%D0%A1%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5">Написать
+                        на почту</a>
+                </li>
+                <li><a href="mailto:dima.fergert@mail.ru">dima.fergert@mail.ru</a> — или нажмите кнопку выше</li>
+                <li><a href="https://t.me/T_h_e_L_i_o_n" target="_blank" rel="noopener noreferrer">Telegram ·
+                        @T_h_e_L_i_o_n</a></li>
+                <li><a href="https://github.com/FWerhol" target="_blank" rel="noopener noreferrer">github.com/FWerhol</a>
+                </li>
+            </ul>
+        </header>
+
+        <section class="cv-section" aria-labelledby="cv-about">
+            <h2 class="cv-section-title" id="cv-about">О себе</h2>
+            <p>
+                Frontend-разработчик в <strong style="color: rgba(244, 244, 245, 0.92)">Foundation Marketing</strong>
+                (США). Занимаюсь вёрсткой и развитием сайтов: калькуляторы, карусели, анимации, адаптив, формы и
+                интеграции — от мелких правок до целых блоков и лендингов под ключ.
+            </p>
+        </section>
+
+        <section class="cv-section" aria-labelledby="cv-skills">
+            <h2 class="cv-section-title" id="cv-skills">Навыки и фокус</h2>
+            <div class="cv-skills">
+                <span class="cv-pill">HTML / семантика</span>
+                <span class="cv-pill">CSS / адаптив</span>
+                <span class="cv-pill">JavaScript</span>
+                <span class="cv-pill">Интерактив и анимации</span>
+                <span class="cv-pill">Core Web Vitals</span>
+                <span class="cv-pill">Формы и аналитика</span>
+                <span class="cv-pill">Figma → вёрстка</span>
+            </div>
+        </section>
+
+        <section class="cv-section" aria-labelledby="cv-exp">
+            <h2 class="cv-section-title" id="cv-exp">Опыт</h2>
+
+            <div class="cv-job">
+                <div class="cv-job-head">
+                    <h3 class="cv-job-title">Foundation Marketing</h3>
+                    <span class="cv-job-meta">2023 — н.в. · США</span>
+                </div>
+                <p class="cv-job-sub">Фронтенд-разработчик · лендинги и продуктовые страницы</p>
+                <ul class="cv-list">
+                    <li>Вёрстка и адаптив по макетам, спокойная типографика и сильный визуал без перегруза интерфейса.
+                    </li>
+                    <li>Интерактив, доводка метрик загрузки и отзывчивости до стабильных значений.</li>
+                    <li>Фокус на производительности и предсказуемом поведении на всех устройствах.</li>
+                </ul>
+            </div>
+
+            <div class="cv-job">
+                <div class="cv-job-head">
+                    <h3 class="cv-job-title">Фриланс и доработки</h3>
+                    <span class="cv-job-meta">ранее — н.в.</span>
+                </div>
+                <p class="cv-job-sub">Точечные задачи и новые блоки на живых проектах</p>
+                <ul class="cv-list">
+                    <li>Интерфейсы под брендбук, интеграции форм и аналитики.</li>
+                    <li>Быстрое подключение, фиксация объёма и сроков, аккуратные изменения без лишних зависимостей.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cv-section" aria-labelledby="cv-formats">
+            <h2 class="cv-section-title" id="cv-formats">Форматы работы</h2>
+            <ul class="cv-list">
+                <li><strong style="color: rgba(244, 244, 245, 0.9)">Лендинг под ключ</strong> — вёрстка, адаптив,
+                    базовый интерактив и запуск (ориентир по смете после брифа).</li>
+                <li><strong style="color: rgba(244, 244, 245, 0.9)">Доработки и блоки</strong> — почасово или фикс за
+                    задачу / мини-спринт после оценки.</li>
+                <li><strong style="color: rgba(244, 244, 245, 0.9)">Консультация</strong> — бриф и ориентиры по срокам;
+                    при необходимости платная сессия по ТЗ.</li>
+            </ul>
+        </section>
+    </article>
+
+    <p class="cv-hint">
+        Чтобы сохранить PDF: <strong>Печать → «Сохранить как PDF»</strong> (Chrome / Edge) или <strong>Экспорт в
+            PDF</strong> в диалоге печати.
+    </p>
+</body>
+
+</html>

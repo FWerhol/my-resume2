@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <script>
+        (function () {
+            try {
+                var nav = performance.getEntriesByType("navigation")[0];
+                if (nav && nav.type === "reload" && window.location.hash === "#brief") {
+                    var u = window.location.pathname + (window.location.search || "");
+                    if (window.history && window.history.replaceState) {
+                        window.history.replaceState(null, "", u);
+                    }
+                }
+            } catch (e) { /* старые браузеры */ }
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Дмитрий Фергерт — фронтенд-разработчик</title>
+    <meta name="description" content="Фронтенд: вёрстка, анимации, адаптив. Лаконичные интерфейсы и чистый код." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#070d0a" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Дмитрий Фергерт — фронтенд-разработчик" />
+    <meta property="og:description"
+        content="Фронтенд: вёрстка, анимации, адаптив. Лаконичные интерфейсы и чистый код." />
+    <meta property="og:locale" content="ru_RU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Дмитрий Фергерт — фронтенд-разработчик" />
+    <meta name="twitter:description"
+        content="Фронтенд: вёрстка, анимации, адаптив. Лаконичные интерфейсы и чистый код." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="preload" href="assets/hero-3.png" as="image" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/favicon.svg" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Дмитрий Фергерт",
+        "email": "dima.fergert@mail.ru",
+        "jobTitle": "Frontend-разработчик",
+        "description": "Вёрстка, анимации, адаптивные интерфейсы, чистый код.",
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "Frontend", "Вёрстка"],
+        "sameAs": ["https://github.com/FWerhol", "https://t.me/T_h_e_L_i_o_n"]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="bg-marquee" aria-hidden="true">
+        <div class="bg-marquee__aura"></div>
+        <div class="bg-marquee__track bg-marquee__track--1">
+            <div class="bg-marquee__line">
+                <span>0101011010010110</span><span>•</span><span>1100100110100110</span><span>•</span><span>0110010101011001</span><span>•</span><span>1011001101010011</span><span>•</span>
+                <span>0101011010010110</span><span>•</span><span>1100100110100110</span><span>•</span><span>0110010101011001</span><span>•</span><span>1011001101010011</span><span>•</span>
+            </div>
+        </div>
+        <div class="bg-marquee__track bg-marquee__track--2">
+            <div class="bg-marquee__line">
+                <span>0011010101101010</span><span>•</span><span>1010100110010101</span><span>•</span><span>0101101011001010</span><span>•</span><span>1100101010011010</span><span>•</span>
+                <span>0011010101101010</span><span>•</span><span>1010100110010101</span><span>•</span><span>0101101011001010</span><span>•</span><span>1100101010011010</span><span>•</span>
+            </div>
+        </div>
+        <div class="bg-marquee__track bg-marquee__track--3">
+            <div class="bg-marquee__line">
+                <span>1110010100110101</span><span>•</span><span>0101100110101100</span><span>•</span><span>1010011010100101</span><span>•</span><span>0110101001101001</span><span>•</span>
+                <span>1110010100110101</span><span>•</span><span>0101100110101100</span><span>•</span><span>1010011010100101</span><span>•</span><span>0110101001101001</span><span>•</span>
+            </div>
+        </div>
+        <div class="bg-marquee__track bg-marquee__track--4">
+            <div class="bg-marquee__line">
+                <span>1010101001100110</span><span>•</span><span>0101010110011001</span><span>•</span><span>1100110010101010</span><span>•</span><span>0011001101010101</span><span>•</span>
+                <span>1010101001100110</span><span>•</span><span>0101010110011001</span><span>•</span><span>1100110010101010</span><span>•</span><span>0011001101010101</span><span>•</span>
+            </div>
+        </div>
+    </div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="glow glow--1" aria-hidden="true"></div>
+    <div class="glow glow--2" aria-hidden="true"></div>
+
+    <header class="topbar">
+        <a class="topbar__logo" href="#home">DF<span class="topbar__logo-dot" aria-hidden="true"></span></a>
+        <nav class="topbar__nav" aria-label="Навигация">
+            <a class="topbar__link" href="#about">Обо мне</a>
+            <a class="topbar__link" href="#experience">Опыт</a>
+            <a class="topbar__link" href="#pricing">Стоимость</a>
+            <a class="topbar__link" href="#contacts">Контакты</a>
+            <a class="topbar__link" href="#brief" data-open-brief="project">Заявка</a>
+        </nav>
+        <a class="btn-cv" href="cv.html" download="Fergert-Dmitry-CV.html">
+            <span>Скачать CV</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+            </svg>
+        </a>
+    </header>
+
+    <main class="page">
+        <section class="single-screen glass-panel is-mounted" id="home">
+            <div class="single-screen__hero">
+                <div class="single-screen__copy">
+
+                    <h1 class="hero-name">
+                        <span class="display hero-enter" style="--he: 2">Дмитрий</span>
+                        <span class="display display--dim hero-enter" style="--he: 3">Фергерт</span>
+                    </h1>
+                    <p class="hero-domini__sub hero-enter" style="--he: 4">
+                        Создаю быстрые, сдержанные и аккуратные сайты: современная вёрстка, чистый код,
+                        производительность и внимание к деталям.
+                    </p>
+                    <div class="hero-domini__actions hero-enter" style="--he: 5">
+                        <button type="button" class="btn-primary" data-open-brief="project">Обсудить проект</button>
+                        <a class="btn-ghost" href="#about">Смотреть ниже</a>
+                    </div>
+                </div>
+
+                <div class="single-screen__portrait hero-enter" style="--he: 6">
+                    <div class="hero-media hero-media--clean">
+                        <div class="hero-media__portrait" data-spotlight>
+                            <img class="hero-portrait-img" src="assets/hero-3.png" width="720" height="720"
+                                alt="Дмитрий Фергерт, портрет" loading="eager" decoding="async" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-screen__board" data-board>
+                <div class="board-layout__main">
+                    <div id="about" class="board-section anchor-section" data-reveal>
+                        <div class="board-section__inner board-section__inner--wide">
+                            <p class="board-section__label">Обо мне</p>
+                            <h2 class="board-section__title">Интерфейсы без лишнего шума</h2>
+                            <div class="about-showcase" aria-labelledby="about-heading">
+                                <figure class="about-showcase__photo" data-spotlight>
+                                    <div class="about-showcase__frame">
+                                        <img class="about-showcase__img" src="assets/about-dmitry-bw.png" width="800"
+                                            height="1000" alt="Дмитрий Фергерт" loading="lazy" decoding="async"
+                                            fetchpriority="low"
+                                            onerror="this.onerror=null;this.src='assets/hero-3.png';" />
+                                    </div>
+                                    <figcaption class="about-showcase__cap">Foundation Marketing · frontend</figcaption>
+                                </figure>
+                                <div class="about-showcase__copy">
+                                    <span class="about-showcase__layer" aria-hidden="true">Hello</span>
+                                    <p class="about-showcase__hello" id="about-heading">Hello!</p>
+                                    <p class="about-showcase__text">
+                                        Меня зовут Дмитрий, я frontend-разработчик из компании Foundation Marketing
+                                        (США).
+                                    </p>
+                                    <p class="about-showcase__text">
+                                        Берусь за доработку и написание сайтов: калькуляторы, карусели, анимации,
+                                        адаптив,
+                                        любые интерактивные элементы — от мелких правок до вёрстки целых блоков под
+                                        ключ.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="experience" class="board-section anchor-section" data-reveal data-reveal-delay="1">
+                        <div class="board-section__inner board-section__inner--wide">
+                            <p class="board-section__label">Опыт</p>
+                            <h2 class="board-section__title">Куда смотрел фокус</h2>
+                            <div class="exp-works" role="list" aria-label="Проекты и направления">
+                                <article class="exp-work" tabindex="0" role="listitem">
+                                    <div class="exp-work__visual">
+                                        <img class="exp-work__img" src="assets/exp-slide-1.png" width="800"
+                                            height="1000" alt="" loading="eager" decoding="async" />
+                                        <div class="exp-work__shade" aria-hidden="true"></div>
+                                        <p class="exp-work__quote">«Сильный визуал и спокойная типографика — без
+                                            перегруза
+                                            интерфейса.»</p>
+                                    </div>
+                                    <div class="exp-work__body">
+                                        <div class="exp-work__head">
+                                            <div class="exp-work__titles">
+                                                <h3 class="exp-work__title">Foundation Marketing</h3>
+                                                <p class="exp-work__sub">Лендинги · США</p>
+                                            </div>
+                                            <span class="exp-work__link-ico" aria-hidden="true">↗</span>
+                                        </div>
+                                        <p class="exp-work__detail">Продуктовые страницы, интерактив и доводка метрик до
+                                            стабильных значений загрузки и отзывчивости.</p>
+                                        <span class="exp-work__pill">Фокус на Core Web Vitals</span>
+                                    </div>
+                                </article>
+                                <article class="exp-work exp-work--landscape" tabindex="0" role="listitem">
+                                    <div class="exp-work__visual">
+                                        <img class="exp-work__img" src="assets/exp-lovely-landscape.png" width="1600"
+                                            height="900" alt="" loading="lazy" decoding="async"
+                                            onerror="this.onerror=null;this.src='assets/exp-slide-2.png';" />
+                                        <div class="exp-work__shade" aria-hidden="true"></div>
+                                        <p class="exp-work__quote">«Lovely landscapes» — тот же принцип во фронтенде:
+                                            спокойный слой, без визуального шума.</p>
+                                    </div>
+                                    <div class="exp-work__body">
+                                        <div class="exp-work__head">
+                                            <div class="exp-work__titles">
+                                                <h3 class="exp-work__title">Lovely landscapes</h3>
+                                                <p class="exp-work__sub">Визуальный ориентир · атмосфера</p>
+                                            </div>
+                                            <span class="exp-work__link-ico" aria-hidden="true">↗</span>
+                                        </div>
+                                        <p class="exp-work__detail">Крупные спокойные планы, отражение и воздух в кадре
+                                            —
+                                            как хочется видеть интерфейс: ясная иерархия, мягкий контраст, ничего
+                                            лишнего
+                                            на пути к действию.</p>
+                                        <span class="exp-work__pill">Тон и ритм, а не шум</span>
+                                    </div>
+                                </article>
+                                <article class="exp-work" tabindex="0" role="listitem">
+                                    <div class="exp-work__visual">
+                                        <img class="exp-work__img" src="assets/exp-slide-3.png" width="800"
+                                            height="1000" alt="" loading="lazy" decoding="async" />
+                                        <div class="exp-work__shade" aria-hidden="true"></div>
+                                        <p class="exp-work__quote">«Чистая вёрстка и предсказуемое поведение на всех
+                                            устройствах.»</p>
+                                    </div>
+                                    <div class="exp-work__body">
+                                        <div class="exp-work__head">
+                                            <div class="exp-work__titles">
+                                                <h3 class="exp-work__title">Фриланс и доработки</h3>
+                                                <p class="exp-work__sub">Точечные задачи</p>
+                                            </div>
+                                            <span class="exp-work__link-ico" aria-hidden="true">↗</span>
+                                        </div>
+                                        <p class="exp-work__detail">От правок вёрстки до новых блоков: быстро
+                                            подключаюсь,
+                                            фиксирую объём и срок, отдаю аккуратный diff.</p>
+                                        <span class="exp-work__pill">Минимум зависимостей</span>
+                                    </div>
+                                </article>
+                            </div>
+                            <ul class="board-timeline">
+                                <li class="board-timeline__item">
+                                    <span class="board-timeline__period">2023 — н.в.</span>
+                                    <div class="board-timeline__body">
+                                        <strong class="board-timeline__role">Фронтенд-разработчик</strong>
+                                        <span class="board-timeline__place">Foundation Marketing · США</span>
+                                        <p class="board-timeline__note">Лендинги, интерактив, доводка до стабильных
+                                            метрик
+                                            загрузки.</p>
+                                    </div>
+                                </li>
+                                <li class="board-timeline__item">
+                                    <span class="board-timeline__period">ранее</span>
+                                    <div class="board-timeline__body">
+                                        <strong class="board-timeline__role">Вёрстка и доработки</strong>
+                                        <span class="board-timeline__place">Проекты и фриланс</span>
+                                        <p class="board-timeline__note">Интерфейсы под брендбук, интеграции с формами и
+                                            аналитикой.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="pricing" class="board-section anchor-section" data-reveal data-reveal-delay="2">
+                        <div class="board-section__inner board-section__inner--wide">
+                            <p class="board-section__label">Стоимость</p>
+                            <h2 class="board-section__title">Прозрачные форматы</h2>
+                            <p class="board-section__text board-section__text--tight">
+                                Ориентиры после короткого брифа — без навязанных пакетов. Всё перечислено на карточках;
+                                итоговая сумма фиксируется после согласования объёма.
+                            </p>
+                            <div class="pricing-cards">
+                                <div class="pricing-card-wrap" tabindex="-1">
+                                    <span class="pricing-card-wrap__track" aria-hidden="true"></span>
+                                    <article class="pricing-card">
+                                        <div class="pricing-card__content">
+                                            <p class="pricing-card__tag">от 75 000 ₽ · от $900</p>
+                                            <h3 class="pricing-card__title">Лендинг под ключ</h3>
+                                            <p class="pricing-card__lead">Одна страница по макету: вёрстка, адаптив,
+                                                базовый
+                                                интерактив и запуск без лишних зависимостей.</p>
+                                            <div class="pricing-card__block">
+                                                <p class="pricing-card__block-title">Вёрстка · адаптив · скорость</p>
+                                                <ul class="pricing-card__list">
+                                                    <li>Семантическая разметка и сетка по Figma (или аналогу)</li>
+                                                    <li>Адаптив: мобильные, планшет, десктоп</li>
+                                                    <li>Оптимизация медиа и шрифтов, ориентир на CWV</li>
+                                                </ul>
+                                            </div>
+                                            <div class="pricing-card__block">
+                                                <p class="pricing-card__block-title">Интерактив</p>
+                                                <ul class="pricing-card__list">
+                                                    <li>Карусели и слайдеры в согласованном объёме</li>
+                                                    <li>Микроанимации появления блоков</li>
+                                                    <li>Калькуляторы простой логики (поля, формулы, вывод)</li>
+                                                </ul>
+                                            </div>
+                                            <div class="pricing-card__block">
+                                                <p class="pricing-card__block-title">Запуск</p>
+                                                <ul class="pricing-card__list">
+                                                    <li>Формы, UTM и события аналитики по ТЗ</li>
+                                                    <li>Один раунд правок по согласованным блокам</li>
+                                                </ul>
+                                            </div>
+                                            <p class="pricing-card__fine">Срок ориентировочно 2–4 недели. Точная смета —
+                                                после брифа.</p>
+                                            <button type="button" class="pricing-card__cta"
+                                                data-open-brief="landing">Обсудить лендинг</button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="pricing-card-wrap pricing-card-wrap--featured" tabindex="-1">
+                                    <span class="pricing-card-wrap__track" aria-hidden="true"></span>
+                                    <article class="pricing-card">
+                                        <div class="pricing-card__content">
+                                            <p class="pricing-card__tag">от 2 500 ₽ / час · фикс по оценке</p>
+                                            <h3 class="pricing-card__title">Доработки и блоки</h3>
+                                            <p class="pricing-card__lead">Подключаюсь к живому проекту: новые секции,
+                                                калькуляторы, анимации и аккуратные правки без «ломающего» рефакторинга.
+                                            </p>
+                                            <div class="pricing-card__block">
+                                                <p class="pricing-card__block-title">Вёрстка и UI</p>
+                                                <ul class="pricing-card__list">
+                                                    <li>Новые блоки, карточки, табы и аккордеоны</li>
+                                                    <li>Правки адаптива и багфиксы вёрстки</li>
+                                                    <li>Приведение к брендбуку и единым отступам</li>
+                                                </ul>
+                                            </div>
+                                            <div class="pricing-card__block">
+                                                <p class="pricing-card__block-title">Интерактив</p>
+                                                <ul class="pricing-card__list">
+                                                    <li>Калькуляторы, фильтры, динамика без тяжёлых библиотек</li>
+                                                    <li>Карусели, анимации скролла и hover/focus-состояния</li>
+                                                    <li>Интеграция скриптов и форм по ТЗ</li>
+                                                </ul>
+                                            </div>
+                                            <div class="pricing-card__block">
+                                                <p class="pricing-card__block-title">Формат</p>
+                                                <ul class="pricing-card__list">
+                                                    <li>Почасово с прозрачным трекингом</li>
+                                                    <li>Или фикс за задачу / мини-спринт после оценки</li>
+                                                </ul>
+                                            </div>
+                                            <button type="button" class="pricing-card__cta"
+                                                data-open-brief="task">Описать задачу</button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="pricing-card-wrap" tabindex="-1">
+                                    <span class="pricing-card-wrap__track" aria-hidden="true"></span>
+                                    <article class="pricing-card">
+                                        <div class="pricing-card__content">
+                                            <p class="pricing-card__tag">бриф 0 ₽ · сессия по запросу</p>
+                                            <h3 class="pricing-card__title">Консультация</h3>
+                                            <p class="pricing-card__lead">Коротко разобрать запрос до старта: объём,
+                                                риски по
+                                                срокам и разумный порядок работ.</p>
+                                            <div class="pricing-card__block">
+                                                <p class="pricing-card__block-title">Бесплатно</p>
+                                                <ul class="pricing-card__list">
+                                                    <li>Бриф в переписке: цели, референсы, дедлайн</li>
+                                                    <li>Ориентир по срокам и формату сотрудничества</li>
+                                                </ul>
+                                            </div>
+                                            <div class="pricing-card__block">
+                                                <p class="pricing-card__block-title">Платно (по договорённости)</p>
+                                                <ul class="pricing-card__list">
+                                                    <li>Час разбора ТЗ, стека и структуры страницы</li>
+                                                    <li>Рекомендации по анимациям, формам и метрикам</li>
+                                                </ul>
+                                            </div>
+                                            <p class="pricing-card__fine">Стоимость сессии фиксируется заранее; при
+                                                заказе работ может
+                                                засчитываться в оплату.</p>
+                                            <button type="button" class="pricing-card__cta"
+                                                data-open-brief="brief">Запросить бриф</button>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="contacts" class="board-section anchor-section" data-reveal data-reveal-delay="3">
+                        <div class="board-section__inner">
+                            <p class="board-section__label">Контакты</p>
+                            <h2 class="board-section__title">Связь</h2>
+                            <p class="board-section__text board-section__text--tight">
+                                Напишите, что нужно сделать — отвечу с вариантами сроков.
+                            </p>
+                            <nav class="contact-row board-contact-row contact-icons" aria-label="Контакты и соцсети">
+                                <a class="contact-icon contact-icon--email"
+                                    href="https://e.mail.ru/compose/?to=dima.fergert%40mail.ru" target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Написать на почту (откроется веб-интерфейс Mail.ru)"
+                                    title="dima.fergert@mail.ru — написать через Mail.ru">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                                        aria-hidden="true">
+                                        <path d="M4 6h16v12H4z" />
+                                        <path d="M4 7l8 6 8-6" />
+                                    </svg>
+                                </a>
+                                <a class="contact-icon" href="https://t.me/T_h_e_L_i_o_n" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Телеграм @T_h_e_L_i_o_n" title="Telegram">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                                        aria-hidden="true">
+                                        <path d="M21 5 3 12.5l5.5 1.5L18.5 19 21 5z" />
+                                        <path d="M8.5 14.5 18 8" />
+                                    </svg>
+                                </a>
+                                <a class="contact-icon" href="https://github.com/FWerhol" target="_blank"
+                                    rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 18 4.77 5.07 5.07 0 0 0 17.91 1S16.73.65 14 2.48a13.38 13.38 0 0 0-4 0C7.27.65 6.09 1 6.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                </a>
+                            </nav>
+                            <p class="board-contact-alt">
+                                <a class="board-contact-alt__mailto" href="mailto:dima.fergert@mail.ru">Почтовый
+                                    клиент</a>
+                                <span class="board-contact-alt__sep" aria-hidden="true">·</span>
+                                <button type="button" class="board-contact-copy" data-copy-email="dima.fergert@mail.ru">
+                                    Скопировать адрес
+                                </button>
+                            </p>
+                            <p class="board-contact-toast" id="contact-copy-toast" role="status" aria-live="polite"
+                                hidden></p>
+                        </div>
+                    </div>
+
+                    <section id="brief" class="board-section board-section--last anchor-section brief-section"
+                        data-reveal hidden data-brief-root>
+                        <div class="board-section__inner board-section__inner--wide">
+                            <p class="board-section__label">Заявка</p>
+                            <h2 class="board-section__title" id="brief-heading">Обсудить проект</h2>
+                            <p class="board-section__text board-section__text--tight" id="brief-intro">
+                                Коротко опишите задачу — отвечу с ориентиром по срокам и следующему шагу.
+                            </p>
+                            <form class="brief-form" id="brief-form">
+                                <input type="hidden" name="brief-topic" id="brief-topic" value="project" />
+                                <div class="brief-form__grid">
+                                    <label class="brief-form__field">
+                                        <span class="brief-form__label">Имя</span>
+                                        <input class="brief-form__input" type="text" name="name" id="brief-name"
+                                            required autocomplete="name" placeholder="Как к вам обращаться" />
+                                    </label>
+                                    <label class="brief-form__field">
+                                        <span class="brief-form__label">Почта или Telegram</span>
+                                        <input class="brief-form__input" type="text" name="contact" id="brief-contact"
+                                            required autocomplete="email" placeholder="email@… или @username" />
+                                    </label>
+                                </div>
+                                <label class="brief-form__field brief-form__field--full">
+                                    <span class="brief-form__label" id="brief-msg-label">Сообщение</span>
+                                    <textarea class="brief-form__textarea" name="message" id="brief-message" rows="5"
+                                        required placeholder="Контекст, ссылки, дедлайн…"></textarea>
+                                </label>
+                                <label class="brief-form__field brief-form__field--full brief-form__field--optional">
+                                    <span class="brief-form__label">Срок и бюджет <span class="brief-form__optional">(по
+                                            желанию)</span></span>
+                                    <input class="brief-form__input" type="text" name="meta" id="brief-meta"
+                                        placeholder="Например: до 15 мая, ориентир 80–100 тыс. ₽" />
+                                </label>
+                                <div class="brief-form__actions">
+                                    <button type="submit" class="btn-primary brief-form__submit">Открыть письмо в
+                                        почте</button>
+                                    <p class="brief-form__hint">Отправка через ваш почтовый клиент: письмо соберётся из
+                                        полей формы. Если ничего не открылось — напишите на
+                                        <a href="mailto:dima.fergert@mail.ru">dima.fergert@mail.ru</a>
+                                        или через
+                                        <a href="https://e.mail.ru/compose/?to=dima.fergert%40mail.ru" target="_blank"
+                                            rel="noopener noreferrer">веб-почту Mail.ru</a>.
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="board-roadmap" aria-label="Разделы страницы">
+                    <div class="board-roadmap__rail" aria-hidden="true">
+                        <span class="board-roadmap__track"></span>
+                        <span class="board-roadmap__fill"></span>
+                    </div>
+                    <ol class="board-roadmap__steps">
+                        <li><a class="board-roadmap__step" href="#about" data-roadmap="about"><span
+                                    class="board-roadmap__num">01</span><span class="board-roadmap__name">Обо
+                                    мне</span></a></li>
+                        <li><a class="board-roadmap__step" href="#experience" data-roadmap="experience"><span
+                                    class="board-roadmap__num">02</span><span
+                                    class="board-roadmap__name">Опыт</span></a></li>
+                        <li><a class="board-roadmap__step" href="#pricing" data-roadmap="pricing"><span
+                                    class="board-roadmap__num">03</span><span
+                                    class="board-roadmap__name">Стоимость</span></a></li>
+                        <li><a class="board-roadmap__step" href="#contacts" data-roadmap="contacts"><span
+                                    class="board-roadmap__num">04</span><span
+                                    class="board-roadmap__name">Контакты</span></a></li>
+                        <li><a class="board-roadmap__step" href="#brief" data-roadmap="brief"
+                                data-open-brief="project"><span class="board-roadmap__num">05</span><span
+                                    class="board-roadmap__name">Заявка</span></a></li>
+                    </ol>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js" defer></script>
+</body>
+
+</html>
